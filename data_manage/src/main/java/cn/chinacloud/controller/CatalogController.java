@@ -37,7 +37,8 @@ public class CatalogController {
     @ResponseBody
     public List<CatalogResource> getResourceInfoByClassifyId(@RequestParam("lastLevelClassifyId") Integer lastLevelClassifyId) {
         List<CatalogResource> resouceList = resourceService.getResourceInfoByClassifyId(lastLevelClassifyId);
-        if(resouceList!=null){
+        if(resouceList!=null && resouceList.size()!=0){
+            System.out.println("resouceList："+resouceList.toString());
             CatalogResource resouce =  resouceList.get(0);
             System.out.println("resouce.getName():"+resouce.getName());
             logger.info("resouce.getName():"+resouce.getName());

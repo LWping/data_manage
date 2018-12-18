@@ -26,7 +26,7 @@ public class ClassifyController {
     public List<ResourceClassify> getClassifyInfo(){
 
         List<ResourceClassify> classifyList = classifyService.getClassifyInfo();
-        if(classifyList!=null){
+        if(classifyList!=null && classifyList.size()!=0){
             ResourceClassify classify =  classifyList.get(0);
             System.out.println("resouce.getName():"+classify.getName());
             logger.info("resouce.getName():"+classify.getName());

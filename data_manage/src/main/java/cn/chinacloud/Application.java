@@ -20,11 +20,11 @@ import javax.sql.DataSource;
 @EnableAutoConfiguration
 @SpringBootApplication
 @ComponentScan
-@MapperScan("cn.chinacloud.mapper.*")
+@MapperScan("cn.chinacloud.mapper")
 public class Application {
     private static Logger logger = Logger.getLogger(Application.class);
 
-    @Bean
+  /*  @Bean
     @ConfigurationProperties(prefix="spring.datasource")
     public DataSource dataSource() {
         return new org.apache.tomcat.jdbc.pool.DataSource();
@@ -38,7 +38,7 @@ public class Application {
 
         PathMatchingResourcePatternResolver resolver = new PathMatchingResourcePatternResolver();
 
-        sqlSessionFactoryBean.setMapperLocations(resolver.getResources("classpath:/mybatis/*.xml"));
+        sqlSessionFactoryBean.setMapperLocations(resolver.getResources("classpath:/mybatis*//*.xml"));
 
         return sqlSessionFactoryBean.getObject();
     }
@@ -47,7 +47,7 @@ public class Application {
     public PlatformTransactionManager transactionManager() {
         return new DataSourceTransactionManager(dataSource());
     }
-
+*/
 
     /**
      * Start
