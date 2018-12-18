@@ -3,13 +3,16 @@ package cn.chinacloud.service;
 import cn.chinacloud.mapper.ResourceClassifyMapper;
 import cn.chinacloud.model.ResourceClassify;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 /**
  * Created by Administrator on 2018/12/17.
  */
+@Service
 public class ClassifyService {
+
     @Autowired
     private ResourceClassifyMapper resourceClassifyMapper;
 
