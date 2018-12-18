@@ -88,6 +88,11 @@
             <artifactId>jackson-core</artifactId>
             <version>${version.jackson}</version>
         </dependency>
+        <dependency>
+            <groupId>tk.mybatis</groupId>
+            <artifactId>mapper</artifactId>
+            <version>3.3.9</version>
+        </dependency>
     </dependencies>
 
 
