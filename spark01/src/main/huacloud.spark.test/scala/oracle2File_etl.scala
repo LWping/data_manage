@@ -9,7 +9,8 @@ object oracle2File_etl {
 
   val config = ConfigFactory.load()
   def main(args: Array[String]): Unit = {
-    val spark = SparkSession.builder()
+    val spark = SparkSession.builder
+	  .config(new SparkConf())
       //.master("local[4]")
       .appName("Oracle2File_zwrx_view_xfdjxx")
       .getOrCreate()

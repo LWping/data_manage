@@ -5,7 +5,8 @@ import org.apache.spark.sql.{DataFrame, SparkSession}
  */
 object spark_hive_test {
   def main(args: Array[String]): Unit = {
-    val spark = SparkSession.builder()
+    val spark = SparkSession.builder
+	  .config(new SparkConf())
       //.master("local[4]")
       .appName("SparkSQL-spark_hive_test")
       .enableHiveSupport()

@@ -7,7 +7,8 @@ import org.apache.spark.sql.{DataFrame, SparkSession}
 object hive2Gp_etl {
   val config = ConfigFactory.load()
   def main(args: Array[String]): Unit = {
-    val spark = SparkSession.builder()
+    val spark = SparkSession.builder
+	   .config(new SparkConf())
       //.master("local[4]")
       .appName("hive2Gp_gj_gps_history")
       .enableHiveSupport()
