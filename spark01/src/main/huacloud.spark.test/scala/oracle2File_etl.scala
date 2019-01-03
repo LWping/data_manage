@@ -9,6 +9,7 @@ import org.apache.spark.sql._
 object oracle2File_etl {
 
   val config = ConfigFactory.load()
+  val outputPathPrefix="file:///root/export_tmp_files/"
   def main(args: Array[String]): Unit = {
 
     val DB = "jxszfw"
@@ -192,13 +193,13 @@ object oracle2File_etl {
     //不需要特殊操作的表直接写入文件
     for(table<-insensitiveTableList){
       val filtedDF = createDataFrame(spark,DB,table)
-      val path = "file:///root/export_tmp_files/"+DB+"/"+table
+      val path = outputPathPrefix+DB+"/"+table
       writeIntoFile(filtedDF,path)
     }
     //处理需要进一步操作（如脱敏）的表
     for((table,sql)<-sensitiveTableAndFilterSqlMap){
       val filtedDF = createDataFrame(spark,DB,table,true,sql)
-      val path = "file:///root/export_tmp_files/"+DB+"/"+table
+      val path = outputPathPrefix+DB+"/"+table
       writeIntoFile(filtedDF,path)
     }
   }
